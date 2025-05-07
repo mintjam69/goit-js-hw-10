@@ -4,8 +4,55 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Page 3</title>
-    <link rel="stylesheet" crossorigin href="/goit-js-hw-10/assets/styles-B9kkWxtF.css">
+    <title>Snackbar</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/iziToast/1.4.0/css/iziToast.min.css"
+    />
+    <script type="module" crossorigin src="/goit-js-hw-10/2-snackbar.js"></script>
+    <link rel="modulepreload" crossorigin href="/goit-js-hw-10/assets/modulepreload-polyfill-B5Qt9EMX.js">
+    <link rel="modulepreload" crossorigin href="/goit-js-hw-10/assets/vendor-BbbuE1sJ.js">
+    <link rel="stylesheet" crossorigin href="/goit-js-hw-10/assets/vendor-CZjNVMTf.css">
+    <link rel="stylesheet" crossorigin href="/goit-js-hw-10/assets/styles-CHWb6tFh.css">
   </head>
-  <body></body>
+  <body>
+    <section>
+      <a href="./index.html">Go to home</a>
+      <h1>Snackbar</h1>
+    </section>
+
+    <form class="snack-form">
+      <label class="delay-label">
+        Delay (ms)
+        <input type="number" name="delay" required />
+      </label>
+
+      <fieldset>
+        <legend>State</legend>
+        <label class="radio-label">
+          <input
+            class="input-radio"
+            type="radio"
+            name="state"
+            value="fulfilled"
+            required
+          />
+          Fulfilled
+        </label>
+        <label class="radio-label">
+          <input
+            class="input-radio"
+            type="radio"
+            name="state"
+            value="rejected"
+            required
+          />
+          Rejected
+        </label>
+      </fieldset>
+
+      <button type="submit">Create notification</button>
+    </form>
+
+  </body>
 </html>
