@@ -1,4 +1,4 @@
-.snack-form {
+.form {
     margin: 0;
     padding: 0;
 }
@@ -16,7 +16,7 @@
 
 }
 
-.snack-form input[type="number"] {
+.form input[type="number"] {
     margin-bottom: 16px;
     font-size: 16px;
     border: 1px solid #ddd;
@@ -31,7 +31,7 @@
 
 }
 
-.snack-form fieldset {
+.form fieldset {
     border-radius: 4px;
     stroke-width: 1px;
     stroke: #808080;
@@ -42,7 +42,7 @@
     font-family: var(--font-family);
 }
 
-.snack-form legend {
+.form legend {
 
     font-family: var(--font-family);
     font-weight: 400;
@@ -54,7 +54,7 @@
 }
 
 
-.snack-form input [type="radio"] {
+.form input [type="radio"] {
 
     display: flex;
     align-items: center;
@@ -67,7 +67,7 @@
 
 }
 
-.snack-form button {
+.form button {
     background: #4e75ff;
     border: none;
     padding: 8px 99px;
@@ -85,7 +85,7 @@
 }
 
 
-.snack-form button:hover {
+.form button:hover {
     background-color: #0056b3;
 }
 
