@@ -7,5 +7,45 @@
     <title>Page 3</title>
     <link rel="stylesheet" href="./css/styles.css" />
   </head>
-  <body></body>
+  <body>
+    <section>
+      <a href="./2-snackbar.html">Go to home</a>
+      <h1>Welcome to page 3</h1>
+    </section>
+
+    <form class="snack-form">
+      <label class="delay-label">
+        Delay (ms)
+        <input type="number" name="delay" required />
+      </label>
+
+      <fieldset>
+        <legend>State</legend>
+        <label class="radio-label">
+          <input
+            class="input-radio"
+            type="radio"
+            name="state"
+            value="fulfilled"
+            required
+          />
+          Fulfilled
+        </label>
+        <label class="radio-label">
+          <input
+            class="input-radio"
+            type="radio"
+            name="state"
+            value="rejected"
+            required
+          />
+          Rejected
+        </label>
+      </fieldset>
+
+      <button type="submit">Create notification</button>
+    </form>
+
+    <script type="module" src="./js/2-snackbar.js"></script>
+  </body>
 </html>
