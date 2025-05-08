@@ -3,8 +3,6 @@ import 'flatpickr/dist/flatpickr.min.css';
 import iziToast from "izitoast";
 import "izitoast/dist/css/iziToast.min.css";
 
-
-
 const datetimePicker = document.querySelector('#datetime-picker');
 const startButton = document.querySelector('[data-start]');
 const timerFields = { 
@@ -17,36 +15,38 @@ const timerFields = {
 let userSelectedDate = null;
 let timerInterval = null;
 
+// ❌ Старт кнопка спочатку неактивна
+startButton.disabled = true;
+
 const options = {
-    enableTime: true,
-    time_24hr: true,
-    defaultDate: new Date(),
-    minuteIncrement: 1,
-    onClose(selectedDates) {
-      const selectedDate = selectedDates[0];
-      const currentDate = new Date();
-      if (selectedDate < currentDate) {
-        iziToast.error({
-          title: 'Error',
-          message: 'Please choose a date in the future',
-          position: 'topCenter',
-          backgroundColor: "#B51B1B",
-        });
-        startButton.disabled = true;
-        userSelectedDate = null;
-      } else {
-        userSelectedDate = selectedDate;
-        startButton.disabled = false;
-      }
+  enableTime: true,
+  time_24hr: true,
+  defaultDate: new Date(),
+  minuteIncrement: 1,
+  onClose(selectedDates) {
+    const selectedDate = selectedDates[0];
+    const currentDate = new Date();
+    if (selectedDate < currentDate) {
+      iziToast.error({
+        title: 'Error',
+        message: 'Please choose a date in the future',
+        position: 'topCenter',
+        backgroundColor: "#B51B1B",
+      });
+      startButton.disabled = true;
+      userSelectedDate = null;
+    } else {
+      userSelectedDate = selectedDate;
+      startButton.disabled = false;
     }
-}
+  }
+};
 
 flatpickr(datetimePicker, options);
 
 startButton.addEventListener('click', () => {
-    if (!userSelectedDate) {
-        return;
-      }
+  if (!userSelectedDate) return;
+
   startButton.disabled = true;
   datetimePicker.disabled = true;
 
@@ -57,12 +57,15 @@ startButton.addEventListener('click', () => {
     if (timeLeft <= 0) {
       clearInterval(timerInterval);
       updateTimer(0, 0, 0, 0);
+
+      // ✅ Інпут стає активним знову
+      datetimePicker.disabled = false;
       return;
     }
 
     const { days, hours, minutes, seconds } = convertMs(timeLeft);
     updateTimer(days, hours, minutes, seconds);
-}, 1000);
+  }, 1000);
 });
 
 function updateTimer(days, hours, minutes, seconds) {
@@ -73,7 +76,7 @@ function updateTimer(days, hours, minutes, seconds) {
 }
 
 function addLeadingZero(value) {
-    return value.toString().padStart(2, '0');
+  return value.toString().padStart(2, '0');
 }
 
 function convertMs(ms) {
